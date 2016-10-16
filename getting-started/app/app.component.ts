@@ -1,33 +1,47 @@
 import { Component } from '@angular/core';
-
-// Book Type
-export class Book {
-  title: Number;
-  cover: String;
-  category: String;
-}
-
-// TODO: Category Type
-export class Category {}
+import { Book, mockBooks } from './mocks/books';
+import { categories, Category } from './mocks/categories';
 
 @Component({
+  moduleId: module.id,
   selector: 'bookstore',
-  // template: ``,
   templateUrl: '../app/app.template.html'
 })
 
 export class AppComponent {
-  books: Book [] = []; // use mocks data instead
-  categories: String [] = ['All', 'Web']; // use mocks data instead
+  books: Book[] = mockBooks;
+  categories: Category[] = categories;
   navClosed: Boolean = true;
 
-  clicked() {
+  clicked(): void {
     console.log('Will be implemented in the next section');
   }
 
-  search(){}
+  changeCategory(selectedCategory: Category): void {
+    this.categories = this.categories.map(category => {
+      if(category === selectedCategory) 
+        category.selected = true;
+      else  
+        category.selected = false;
+      return category;
+    });
 
-  toggleSideBar(){
+    this.filterBooks(selectedCategory);
+  }
+
+  filterBooks(category: Category): void {
+    if(category.name === "All") {
+      this.books = mockBooks
+      return;
+    }
+    this.books = mockBooks.filter(book => book.category === category.name);
+  }
+
+  search(searchTerm): void {
+    console.log(searchTerm);
+  }
+
+  toggleSideBar(): void {
     this.navClosed = !this.navClosed;
   }
 }

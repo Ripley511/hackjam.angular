@@ -2,9 +2,9 @@
   "name": "getting.started",
   "version": "1.0.0",
   "scripts": {
+    "prestart": "yarn install && typings install",
     "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
-    "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings"

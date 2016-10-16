@@ -3,3 +3,5 @@ app/**/*.js.map
 node_modules
 typings
 .DS_Store
+.DS_Store
+yarn.lock
