@@ -62,3 +62,13 @@ A live introduction from us!!
     - Learn about Forms and NgModel
     - The search should be applied to the title and the category
 - Architecture: Split your app into small components (bonus)
+
+## TODO: Features to implement in part 2
+- Architecture: split the app into small components
+- Introducing directives
+- Using pipe to filter books and categories
+- Add navigation
+- Add Services
+- Introducting lifecycle hooks
+    - ngOnInit
+
