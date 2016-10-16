@@ -12,6 +12,7 @@ export class AppComponent {
   books: Book[] = mockBooks;
   categories: Category[] = categories;
   navClosed: Boolean = true;
+  searchTerm: string = "";
 
   clicked(): void {
     console.log('Will be implemented in the next section');
@@ -37,9 +38,9 @@ export class AppComponent {
     this.books = mockBooks.filter(book => book.category === category.name);
   }
 
-  search(searchTerm): void {
+  search(): void {
     this.books = mockBooks.filter(book => {
-      searchTerm = searchTerm.toLowerCase();
+      const searchTerm = this.searchTerm.toLowerCase();
       return book.title.toLowerCase().includes(searchTerm) ||
               book.category.toLocaleLowerCase().includes(searchTerm);
     });
