@@ -38,7 +38,11 @@ export class AppComponent {
   }
 
   search(searchTerm): void {
-    console.log(searchTerm);
+    this.books = mockBooks.filter(book => {
+      searchTerm = searchTerm.toLowerCase();
+      return book.title.toLowerCase().includes(searchTerm) ||
+              book.category.toLocaleLowerCase().includes(searchTerm);
+    });
   }
 
   toggleSideBar(): void {
