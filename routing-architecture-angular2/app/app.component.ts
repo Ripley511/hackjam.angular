@@ -15,7 +15,7 @@ export class AppComponent {
   searchTerm: string = "";
 
   clicked(): void {
-    console.log('Will be implemented in the next section');
+    console.log('navigate to see the details of this book');
   }
 
   changeCategory(selectedCategory: Category): void {

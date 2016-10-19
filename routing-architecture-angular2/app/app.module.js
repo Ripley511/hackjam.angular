@@ -13,34 +13,14 @@ var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
-var header_component_1 = require('./components/header/header.component');
-var menu_component_1 = require('./components/menu/menu.component');
-var booklist_component_1 = require('./components/book/booklist.component');
-var sidebar_component_1 = require('./components/sidebar/sidebar.component');
-var app_service_1 = require('./services/app.service');
-// import { RouterModule }   from '@angular/router';
-// RouterModule.forRoot([
-//       { path: '/books', component: BookListComponent},
-//       { path: '/', component: BookListComponent }
-//     ])
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                forms_1.FormsModule,
-            ],
-            declarations: [
-                app_component_1.AppComponent,
-                header_component_1.HeaderComponent,
-                menu_component_1.MenuComponent,
-                booklist_component_1.BookListComponent,
-                sidebar_component_1.SideBarComponent,
-            ],
-            providers: [app_service_1.AppService],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
+            declarations: [app_component_1.AppComponent],
+            bootstrap: [app_component_1.AppComponent] // Module you need to bootstrap
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
