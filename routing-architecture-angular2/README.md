@@ -3,72 +3,37 @@
 [HackJam Angular 2](hackjam.hackages.io)
 
 
-The goal of this first HackJam will  be to learn the basic of the Framework
-- Module
-- Component
-- Property Binding
-- Forms and NgModel
-- Bootstrap
-- A bit of TypeScript
-    - Define a class/Type
-    - Define a typed array
-- angular-cli
+The goal of this second HackJam will  be to learn more about:
+- Architecture
+- Relationship betwen parent and child components
+- Use service for passing data
+- Add Navigation and learn about Angular routing
+- [Property Binding] (https://angular.io/docs/ts/latest/guide/cheatsheet.html):
 
 You can find the [repo on Github](https://github.com/hackages/hackjam.angular.git)
 
 Clone it: `git clone https://github.com/hackages/hackjam.angular.git`
 
-Bootstrap your application: `npm start`
+`cd routing-architecture-angular2`and run `npm start`
 
 !oops
 
 This application doesn't work :(
 
-### Where do we start?
-
-A live introduction from us!!
-
-### Architecture with `angular-cli`
-
-[angular-cli](https://github.com/angular/angular-cli.git)
-
-## Here are few questions you should be able to answer by the end of this session
-
-### What is a module?
-
-### How do you define a component?
-
-### How do you bootstrap an application?
-
-### How does property binding work?
-
-### Rebuild this app using angular-cli
- install `angular-cli`: `npm i angular-cli@latest -g`
-
- Here you'll find more information about [`angular-cli`](https://github.com/angular/angular-cli.git)
-
- ## TODO: Features to implement in your app
- - Fix all the bugs before trying to implement any other features
- - Display all categories on the menu
-    - Learn about structural directive
-    - Learn how to create a class and create a typed array in TypeScript 
- - Display all books on the main area
-    - Learn about property bindings
- - On click on a category, update the list of books and change the class to selected
-    - The filter should be apply to the category of the book
-    - The css class should be applied to the anchor: hint [class.selected]
- - On click on the filter button, open the sidebar filter component
- - Implement the search 
-    - Learn about Forms and NgModel
-    - The search should be applied to the title and the category
-- Architecture: Split your app into small components (bonus)
+## Important: Fix the app before implementing new feature
 
 ## TODO: Features to implement in part 2
-- Architecture: split the app into small components
-- Introducing directives
+- Architecture: split the app into small components; Use the components folder for spliting your app:
+  Now you'll have to split `app.template.html` to match this architecture:
+    - book component
+    - header component
+    - menu component
+    - sidebar component
 - Using pipe to filter books and categories
-- Add navigation
-- Add Services
-- Introducting lifecycle hooks
-    - ngOnInit
+- Create a service to manage your data
+    - AppService class with 2 methods: getCategories, getBooks
+    - Introducting lifecycle hooks
+        - Use ngOnInit to bootstrap your data
+- Add navigation (when you reach this level just pause and wait)
+
 
