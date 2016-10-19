@@ -9,20 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var app_service_1 = require('./services/app.service');
+var books_1 = require('./mocks/books');
+var categories_1 = require('./mocks/categories');
 var AppComponent = (function () {
-    function AppComponent(appService) {
-        this.appService = appService;
+    function AppComponent() {
+        this.books = books_1.mockBooks;
+        this.categories = categories_1.categories;
         this.navClosed = true;
+        this.searchTerm = "";
     }
-    AppComponent.prototype.getBookDetails = function () {
+    AppComponent.prototype.clicked = function () {
         console.log('Will be implemented in the next section');
-    };
-    AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.appService.getBooks().then(function (books) { return _this.books = books; });
-        this.appService.getCategories().then(function (categories) { return _this.categories = categories; });
-        this.changeCategory = this.changeCategory.bind(this);
     };
     AppComponent.prototype.changeCategory = function (selectedCategory) {
         this.categories = this.categories.map(function (category) {
@@ -35,31 +32,30 @@ var AppComponent = (function () {
         this.filterBooks(selectedCategory);
     };
     AppComponent.prototype.filterBooks = function (category) {
-        var _this = this;
         if (category.name === "All") {
-            // this.books = this.appService.getBooks();
-            this.appService.getCategories().then(function (categories) { return _this.categories = categories; });
+            this.books = books_1.mockBooks;
             return;
         }
-        this.books = this.appService.getBooks().filter(function (book) { return book.category === category.name; });
+        this.books = books_1.mockBooks.filter(function (book) { return book.category === category.name; });
     };
-    AppComponent.prototype.search = function (searchTerm) {
-        this.books = this.appService.getBooks().filter(function (book) {
-            searchTerm = searchTerm.toLowerCase();
+    AppComponent.prototype.search = function () {
+        var _this = this;
+        this.books = books_1.mockBooks.filter(function (book) {
+            var searchTerm = _this.searchTerm.toLowerCase();
             return book.title.toLowerCase().includes(searchTerm) ||
                 book.category.toLocaleLowerCase().includes(searchTerm);
         });
     };
-    AppComponent.prototype.toggleSidebar = function (open) {
-        this.navClosed = open;
+    AppComponent.prototype.toggleSideBar = function () {
+        this.navClosed = !this.navClosed;
     };
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'bookstore',
-            templateUrl: 'app.template.html'
+            templateUrl: '../app/app.template.html'
         }), 
-        __metadata('design:paramtypes', [app_service_1.AppService])
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
