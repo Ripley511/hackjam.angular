@@ -18,6 +18,8 @@ Clone it: `git clone https://github.com/hackages/hackjam.angular.git`
 
 !oops
 
+Just focus on the `app.template.html` and learn more about property binding!
+
 This application doesn't work :(
 
 ## Important: Fix the app before implementing new feature
