@@ -1,0 +1,14 @@
+<bs-header></bs-header>
+<main class="main-content">
+    <!--Menu filters-->
+    <bs-menu [categories]="categories" [changeCategory]="changeCategory"></bs-menu>
+
+    <!--List of books-->
+    <bs-book-list [books]="books" [navClosed]="!navClosed"></bs-book-list>
+
+    <!--Sidebar navigation-->
+    <bs-sidebar 
+        (sidebarHasBeenToggled)="toggleSidebar($event)"
+        (searchTermChanged)="search($event)"
+        ></bs-sidebar>
+</main>
