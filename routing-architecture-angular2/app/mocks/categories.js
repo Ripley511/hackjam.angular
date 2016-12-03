@@ -1,5 +1,5 @@
 "use strict";
-exports.categories = [
+exports.mockCategories = [
     { name: 'All', selected: true },
     { name: 'Web', selected: false },
     { name: 'Mobile', selected: false },

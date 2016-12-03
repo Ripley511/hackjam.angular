@@ -12,14 +12,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var platform_browser_1 = require('@angular/platform-browser');
+var app_service_1 = require('./services/app.service');
 var app_component_1 = require('./app.component');
+var book_component_1 = require('./components/book/book.component');
+var header_component_1 = require('./components/header/header.component');
+var menu_component_1 = require('./components/menu/menu.component');
+var sidebar_component_1 = require('./components/sidebar/sidebar.component');
+var search_pipe_1 = require('./pipes/search.pipe');
+var category_pipe_1 = require('./pipes/category.pipe');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent],
+            providers: [app_service_1.AppService],
+            declarations: [app_component_1.AppComponent, book_component_1.BookComponent, header_component_1.HeaderComponent, menu_component_1.MenuComponent, sidebar_component_1.SidebarComponent, search_pipe_1.SearchFilterPipe, category_pipe_1.CategoryFilterPipe],
             bootstrap: [app_component_1.AppComponent] // Module you need to bootstrap
         }), 
         __metadata('design:paramtypes', [])

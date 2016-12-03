@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book, mockBooks } from '../mocks/books';
-import { categories, Category } from '../mocks/categories';
+import { mockCategories, Category } from '../mocks/categories';
 
 @Injectable()
 export class AppService {
@@ -9,6 +9,6 @@ export class AppService {
     }
 
     getCategories(): Promise<Category[]> {
-        return Promise.resolve(categories);
+        return Promise.resolve(mockCategories);
     }
 }

@@ -1,0 +1,7 @@
+<section class="gallery">
+    <ul>
+        <li *ngFor="let book of books">
+            <img src="{{book.cover}}" (click)="handleSelectBook(book)"/>
+        </li>
+    </ul>
+</section>

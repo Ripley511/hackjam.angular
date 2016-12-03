@@ -11,13 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var HeaderComponent = (function () {
     function HeaderComponent() {
-        this.title = 'Books by Hackages';
     }
     HeaderComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
             selector: 'bs-header',
-            templateUrl: 'header.template.html'
+            templateUrl: '../../app/components/header/header.template.html'
         }), 
         __metadata('design:paramtypes', [])
     ], HeaderComponent);

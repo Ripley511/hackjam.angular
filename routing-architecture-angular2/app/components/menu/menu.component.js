@@ -11,20 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var MenuComponent = (function () {
     function MenuComponent() {
+        this.selectCategory = new core_1.EventEmitter();
     }
+    MenuComponent.prototype.handleSelectCategory = function (category) {
+        this.selectCategory.next(category);
+    };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Object)
+        __metadata('design:type', Array)
     ], MenuComponent.prototype, "categories", void 0);
     __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Function)
-    ], MenuComponent.prototype, "changeCategory", void 0);
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], MenuComponent.prototype, "selectCategory", void 0);
     MenuComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: 'bs-menu',
-            templateUrl: 'menu.template.html'
+            selector: 'menu',
+            templateUrl: '../../app/components/menu/menu.template.html'
         }), 
         __metadata('design:paramtypes', [])
     ], MenuComponent);

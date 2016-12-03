@@ -18,7 +18,7 @@ var AppService = (function () {
         return Promise.resolve(books_1.mockBooks);
     };
     AppService.prototype.getCategories = function () {
-        return Promise.resolve(categories_1.categories);
+        return Promise.resolve(categories_1.mockCategories);
     };
     AppService = __decorate([
         core_1.Injectable(), 

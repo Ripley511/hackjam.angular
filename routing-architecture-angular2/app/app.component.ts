@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Book, mockBooks } from './mocks/books';
-import { categories, Category } from './mocks/categories';
+import { mockCategories, Category } from './mocks/categories';
+import {AppService} from './services/app.service';
 
 @Component({
   moduleId: module.id,
@@ -8,45 +9,35 @@ import { categories, Category } from './mocks/categories';
   templateUrl: '../app/app.template.html'
 })
 
-export class AppComponent {
-  books: Book[] = mockBooks;
-  categories: Category[] = categories;
-  navClosed: Boolean = true;
+export class AppComponent implements OnInit {
+  books: Book[];
+  categories: Category[];
   searchTerm: string = "";
+  category: string = 'All';
 
-  clicked(): void {
+  constructor(private appService: AppService) {}
+
+  ngOnInit(): void {
+    this.appService.getBooks().then(books => this.books = books);
+    this.appService.getCategories().then(categories => this.categories = categories);
+  }
+
+  selectBook(book: Book): void {
     console.log('Will be implemented in the next section');
   }
 
   changeCategory(selectedCategory: Category): void {
+    this.category = selectedCategory.name;
     this.categories = this.categories.map(category => {
-      if(category === selectedCategory) 
+      if(category === selectedCategory)
         category.selected = true;
-      else  
+      else
         category.selected = false;
       return category;
     });
-
-    this.filterBooks(selectedCategory);
   }
 
-  filterBooks(category: Category): void {
-    if(category.name === "All") {
-      this.books = mockBooks
-      return;
-    }
-    this.books = mockBooks.filter(book => book.category === category.name);
-  }
-
-  search(): void {
-    this.books = mockBooks.filter(book => {
-      const searchTerm = this.searchTerm.toLowerCase();
-      return book.title.toLowerCase().includes(searchTerm) ||
-              book.category.toLocaleLowerCase().includes(searchTerm);
-    });
-  }
-
-  toggleSideBar(): void {
-    this.navClosed = !this.navClosed;
+  setSearchTerm(searchTerm): void {
+    this.searchTerm = searchTerm;
   }
 }

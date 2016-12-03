@@ -1,4 +1,4 @@
-export const categories = [
+export const mockCategories = [
   { name: 'All', selected: true},
   { name: 'Web', selected: false},
   { name: 'Mobile', selected: false},
@@ -10,4 +10,3 @@ export class Category{
   name: string;
   selected: boolean;
 }
-
