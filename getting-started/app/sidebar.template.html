@@ -1,0 +1,15 @@
+<div>
+    <div [class.filter-is-visible]="!navClosed" class="filter">
+        <form #f="ngForm">
+          <div class="filter-block">
+              <h4>Search</h4>
+              <div class="filter-content">
+              <input type="search" name="term" placeholder="title, price..." [(ngModel)]="term" (ngModelChange)="handleSearch()"/>
+          </div>
+        </div>
+        </form>
+        <a href="#0" class="close" (click)="toggleSideBar()">Close</a>
+    </div>
+
+    <a href="#0" class="filter-trigger" (click)="toggleSideBar()">Filters</a>
+</div>
